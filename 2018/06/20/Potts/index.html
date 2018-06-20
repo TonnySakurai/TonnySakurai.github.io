@@ -83,6 +83,11 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
 
     
 
@@ -512,11 +517,127 @@
 <li>For each spin that was added in the last step,examine each of its neighbours to find which ones, if any, have the same value and add each of them to the cluster with the same probability P. This step is repeated as many times as necessary until there are no spin left in the cluster whose neighbours have not been considered for inclusion in the cluster.</li>
 <li>Choose at random a new value for the spins in the cluster, different from the present value, and set all the spins to that new value.</li>
 </ol>
-<h3 id="C语言实现"><a href="#C语言实现" class="headerlink" title="C语言实现"></a>C语言实现</h3><p>step() 函数用于完成一次Wolff算法翻转，其中padd, XNN, YNN等变量定义在主函数中。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">step</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> sp;</span><br><span class="line">	<span class="keyword">int</span> oldspin, newspin;</span><br><span class="line">	<span class="keyword">int</span> current, nn;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">stack</span>[N];</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Choose the seed spin for the cluster,</span></span><br><span class="line"><span class="comment">	 * put it on the stack, and flip it</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"></span><br><span class="line">	i = N*genrand_real3();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">stack</span>[<span class="number">0</span>] = i;</span><br><span class="line">	sp = <span class="number">1</span>;</span><br><span class="line">	oldspin = s[i];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>( ;(newspin = (<span class="keyword">int</span>)(Q*genrand_real3()))==oldspin; )</span><br><span class="line">	&#123;&#125;</span><br><span class="line"></span><br><span class="line">        s[i] = newspin;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(sp)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">/* Pull a site off the stack */</span></span><br><span class="line"></span><br><span class="line">		current = <span class="built_in">stack</span>[--sp];</span><br><span class="line"></span><br><span class="line">		<span class="comment">/* Check the neighbors */</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>((nn=current+XNN)&gt;=N)</span><br><span class="line">			nn -= N;</span><br><span class="line">		<span class="keyword">if</span>(s[nn]==oldspin)</span><br><span class="line">			<span class="keyword">if</span>(genrand_real1()&lt;padd)&#123;</span><br><span class="line">				<span class="built_in">stack</span>[sp++] = nn;</span><br><span class="line">				s[nn] = newspin;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>((nn=current-XNN)&lt;<span class="number">0</span>)</span><br><span class="line">			nn += N;</span><br><span class="line">		<span class="keyword">if</span>(s[nn]==oldspin)</span><br><span class="line">			<span class="keyword">if</span>(genrand_real1()&lt;padd)&#123;</span><br><span class="line">				<span class="built_in">stack</span>[sp++] = nn;</span><br><span class="line">				s[nn] = newspin;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>((nn=current+YNN)&gt;=N)</span><br><span class="line">			nn -=N;</span><br><span class="line">		<span class="keyword">if</span>(s[nn]==oldspin)</span><br><span class="line">			<span class="keyword">if</span>(genrand_real1()&lt;padd)&#123;</span><br><span class="line">				<span class="built_in">stack</span>[sp++] = nn;</span><br><span class="line">				s[nn] = newspin;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>((nn=current-YNN)&lt;<span class="number">0</span>)</span><br><span class="line">			nn += N;</span><br><span class="line">		<span class="keyword">if</span>(s[nn]==oldspin)</span><br><span class="line">			<span class="keyword">if</span>(genrand_real1()&lt;padd)&#123;</span><br><span class="line">				<span class="built_in">stack</span>[sp++] = nn;</span><br><span class="line">				s[nn] = newspin;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="C语言实现"><a href="#C语言实现" class="headerlink" title="C语言实现"></a>C语言实现</h3><p>step() 函数用于完成一次Wolff算法翻转，其中padd, XNN, YNN等变量定义在主函数中。</p>
+<pre><code class="C">void step()
+{
+    int i;
+    int sp;
+    int oldspin, newspin;
+    int current, nn;
+    int stack[N];
+
+    /* Choose the seed spin for the cluster,
+     * put it on the stack, and flip it
+     */
+
+    i = N*genrand_real3();
+
+    stack[0] = i;
+    sp = 1;
+    oldspin = s[i];
+
+    for( ;(newspin = (int)(Q*genrand_real3()))==oldspin; )
+    {}
+
+        s[i] = newspin;
+
+    while(sp){
+
+        /* Pull a site off the stack */
+
+        current = stack[--sp];
+
+        /* Check the neighbors */
+
+        if((nn=current+XNN)&gt;=N)
+            nn -= N;
+        if(s[nn]==oldspin)
+            if(genrand_real1()&lt;padd){
+                stack[sp++] = nn;
+                s[nn] = newspin;
+            }
+
+        if((nn=current-XNN)&lt;0)
+            nn += N;
+        if(s[nn]==oldspin)
+            if(genrand_real1()&lt;padd){
+                stack[sp++] = nn;
+                s[nn] = newspin;
+            }
+
+        if((nn=current+YNN)&gt;=N)
+            nn -=N;
+        if(s[nn]==oldspin)
+            if(genrand_real1()&lt;padd){
+                stack[sp++] = nn;
+                s[nn] = newspin;
+            }
+
+        if((nn=current-YNN)&lt;0)
+            nn += N;
+        if(s[nn]==oldspin)
+            if(genrand_real1()&lt;padd){
+                stack[sp++] = nn;
+                s[nn] = newspin;
+            }
+    }
+}
+</code></pre>
 <h2 id="求解Potts模型的临界温度"><a href="#求解Potts模型的临界温度" class="headerlink" title="求解Potts模型的临界温度"></a>求解Potts模型的临界温度</h2><p>本课题通过构造新的有限尺度标度形式来求解Potts模型的临界温度，具体的思想来自于<a href="http://iopscience.iop.org/article/10.1088/0253-6102/66/3/355/meta" target="_blank" rel="noopener">Critical Behaviors and Finite-Size Scaling of Principal Fluctuation Modes in Complex Systems</a>一文，在此不再赘述。只将主函数需要实现的功能展示如下：</p>
-<h3 id="并行计算"><a href="#并行计算" class="headerlink" title="并行计算"></a>并行计算</h3><p>对于统计模拟，多次重复计算可以降低随机涨落带来的影响。由于本课题利用了大规模集群计算系统，所以需要实现多核并行计算功能，以提高计算效率。具体代码为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> npes,myrank;</span><br><span class="line">MPI_Init(<span class="literal">NULL</span>,<span class="literal">NULL</span>); </span><br><span class="line">MPI_Comm_rank(MPI_COMM_WORLD, &amp;myrank);</span><br><span class="line">MPI_Comm_size(MPI_COMM_WORLD, &amp;npes);</span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> init[<span class="number">4</span>]=&#123;<span class="number">0x523</span>, <span class="number">0x234</span>, <span class="number">0x345</span>, <span class="number">0x456</span>&#125;, length=<span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">4</span>;j++)&#123;</span><br><span class="line">    init[j]+=(time(<span class="literal">NULL</span>)+myrank);</span><br><span class="line">&#125;</span><br><span class="line">init_by_array(init, length);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(n=<span class="number">0</span>; n&lt;N;n++)</span><br><span class="line">    s[n] = (<span class="keyword">int</span>)(Q*genrand_real3());</span><br><span class="line">	</span><br><span class="line"><span class="keyword">char</span> filename[<span class="number">30</span>]=&#123;<span class="number">0</span>&#125;,num[<span class="number">5</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">strcpy</span>(filename,<span class="string">"file"</span>);</span><br><span class="line"><span class="built_in">sprintf</span>(num, <span class="string">"%d"</span>, myrank); </span><br><span class="line"><span class="built_in">strcat</span>(filename,num);</span><br><span class="line"><span class="built_in">strcat</span>(filename,<span class="string">".txt"</span>);</span><br><span class="line"><span class="function">ofstream <span class="title">outfile</span><span class="params">(filename)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="并行计算"><a href="#并行计算" class="headerlink" title="并行计算"></a>并行计算</h3><p>对于统计模拟，多次重复计算可以降低随机涨落带来的影响。由于本课题利用了大规模集群计算系统，所以需要实现多核并行计算功能，以提高计算效率。具体代码为：</p>
+<pre><code class="c++">    int npes,myrank;
+    MPI_Init(NULL,NULL); 
+    MPI_Comm_rank(MPI_COMM_WORLD, &amp;myrank);
+    MPI_Comm_size(MPI_COMM_WORLD, &amp;npes);
+
+    unsigned long init[4]={0x523, 0x234, 0x345, 0x456}, length=4;
+
+    for(int j=0;j&lt;4;j++){
+        init[j]+=(time(NULL)+myrank);
+    }
+    init_by_array(init, length);
+
+    for(n=0; n&lt;N;n++)
+        s[n] = (int)(Q*genrand_real3());
+
+    char filename[30]={0},num[5]={0};
+    strcpy(filename,&quot;file&quot;);
+    sprintf(num, &quot;%d&quot;, myrank); 
+    strcat(filename,num);
+    strcat(filename,&quot;.txt&quot;);
+    ofstream outfile(filename);
+</code></pre>
 <p>前四行代码是并行计算所需要的常规设置，中间利用了time()函数和每个核的rank值给格点的自旋方向s[n]进行随机赋值，其中使用到了mt19937ar.h头文件。<br>后六行代码是希望每个核计算完成后将所算得的数据存在一个名为 <em>filenamemyrank.txt</em> 的文件中，其中myrank是该核在计算开始时被分配到的数字。</p>
-<h3 id="求解矩阵本征值"><a href="#求解矩阵本征值" class="headerlink" title="求解矩阵本征值"></a>求解矩阵本征值</h3><p>因为求解Potts模型临界温度的过程中需要求解所定义的相似度矩阵的本征值，所以实现求解矩阵本征值的功能。代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">MatrixXd Name = MatrixXd::Constant(MC_strps_persite/SpanTime,MC_strps_persite/SpanTime,<span class="number">0.0</span>);</span><br><span class="line"><span class="comment">//VectorXcd v;</span></span><br><span class="line">		</span><br><span class="line"><span class="keyword">for</span>(k = <span class="number">0</span>;k&lt;MC_strps_persite/SpanTime;k++)&#123;</span><br><span class="line">	<span class="keyword">for</span>(l=<span class="number">0</span>; l&lt;MC_strps_persite/SpanTime;l++)</span><br><span class="line">		Name(k,l) = Connectmatrix[k][l];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SelfAdjointEigenSolver&lt;MatrixXd&gt; es(Name);</span><br><span class="line"></span><br><span class="line"><span class="comment">//cout&lt;&lt;"The eigenvalues of A are:"&lt;&lt;endl&lt;&lt;es.eigenvalues()&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">//cout&lt;&lt;"The matrix of eigenvectors, V, is:"&lt;&lt;endl&lt;&lt;es.eigenvectors()&lt;&lt;endl&lt;&lt;endl;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> eigen_values[MC_strps_persite/SpanTime];</span><br><span class="line"><span class="comment">//double eigen_vactors[MC_strps_persite/SpanTime][MC_strps_persite/SpanTime];</span></span><br><span class="line">		</span><br><span class="line"><span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;(Q*<span class="number">3</span>);k++)&#123;</span><br><span class="line">	<span class="comment">//v = es.eigenvectors().col(MC_strps_persite/SpanTime-k-1);</span></span><br><span class="line">	eigen_values[k] = es.eigenvalues()(MC_strps_persite/SpanTime-k<span class="number">-1</span>);</span><br><span class="line">	<span class="comment">//eigen_vactors[k][l] = v(l);</span></span><br><span class="line">&#125;	</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line"><span class="comment">//fprintf(fpt_2, "The temperature is %lf\n", Temperature);</span></span><br><span class="line"><span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;(Q*<span class="number">3</span>);k++)</span><br><span class="line">	outfile &lt;&lt;setiosflags(ios::fixed)&lt;&lt;setprecision(<span class="number">8</span>)&lt;&lt; eigen_values[k] &lt;&lt;<span class="string">" "</span> ;</span><br><span class="line"></span><br><span class="line">outfile &lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="求解矩阵本征值"><a href="#求解矩阵本征值" class="headerlink" title="求解矩阵本征值"></a>求解矩阵本征值</h3><p>因为求解Potts模型临界温度的过程中需要求解所定义的相似度矩阵的本征值，所以实现求解矩阵本征值的功能。代码如下：</p>
+<pre><code class="c++">MatrixXd Name = MatrixXd::Constant(MC_strps_persite/SpanTime,MC_strps_persite/SpanTime,0.0);
+//VectorXcd v;
+
+for(k = 0;k&lt;MC_strps_persite/SpanTime;k++){
+    for(l=0; l&lt;MC_strps_persite/SpanTime;l++)
+        Name(k,l) = Connectmatrix[k][l];
+}
+
+SelfAdjointEigenSolver&lt;MatrixXd&gt; es(Name);
+
+//cout&lt;&lt;&quot;The eigenvalues of A are:&quot;&lt;&lt;endl&lt;&lt;es.eigenvalues()&lt;&lt;endl;
+//cout&lt;&lt;&quot;The matrix of eigenvectors, V, is:&quot;&lt;&lt;endl&lt;&lt;es.eigenvectors()&lt;&lt;endl&lt;&lt;endl;
+
+double eigen_values[MC_strps_persite/SpanTime];
+//double eigen_vactors[MC_strps_persite/SpanTime][MC_strps_persite/SpanTime];
+
+for(k=0; k&lt;(Q*3);k++){
+    //v = es.eigenvectors().col(MC_strps_persite/SpanTime-k-1);
+    eigen_values[k] = es.eigenvalues()(MC_strps_persite/SpanTime-k-1);
+    //eigen_vactors[k][l] = v(l);
+}    
+
+
+//fprintf(fpt_2, &quot;The temperature is %lf\n&quot;, Temperature);
+for(k=0; k&lt;(Q*3);k++)
+    outfile &lt;&lt;setiosflags(ios::fixed)&lt;&lt;setprecision(8)&lt;&lt; eigen_values[k] &lt;&lt;&quot; &quot; ;
+
+outfile &lt;&lt;endl;
+</code></pre>
 <p>此处使用了c++中求解本征值的eigen包，由于该包需要使用MatrixXd形数据，所以代码前五行将原始的数组形式的矩阵转换成MatrixXd形的数据。其中注释掉的部分可用于求解特征向量。最后该代码输出了该矩阵前Q*3个本征值。（Q为Potts模型方向数，本征值按从大到小输出）</p>
 <p>:D 本程序全部代码可从[<a href="https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo]获得。" target="_blank" rel="noopener">https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo]获得。</a><br>[^1]:Newman M E J, Barkema G T. Monte Carlo Methods in Statistical Physics chapter 1-4[M]. Oxford University Press: New York, USA, 1999.</p>
 
@@ -876,6 +997,12 @@ It will not impact the appearance and can give developers a lot of support :)
 
 <!-- Import prettify js  -->
 
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
 
 
 <!-- Window Load -->
@@ -886,6 +1013,13 @@ It will not impact the appearance and can give developers a lot of support :)
         $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
     });
 
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
     
     
 </script>
