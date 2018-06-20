@@ -241,7 +241,7 @@
 
     
         <meta property="article:published_time" content="Wed Jun 20 2018 17:35:38 GMT+0800">
-        <meta property="article:modified_time" content="Wed Jun 20 2018 22:08:17 GMT+0800">
+        <meta property="article:modified_time" content="Wed Jun 20 2018 22:54:57 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -264,7 +264,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/06/20/Potts/index.html",
     "headline": "基于Wolff算法的二维Potts模型蒙特卡罗模拟",
     "datePublished": "Wed Jun 20 2018 17:35:38 GMT+0800",
-    "dateModified": "Wed Jun 20 2018 22:08:17 GMT+0800",
+    "dateModified": "Wed Jun 20 2018 22:54:57 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Tonny Liu",
@@ -496,7 +496,7 @@
     
         <p>由于我的本科毕业设计的课题是利用蒙特卡罗模拟的方法求解二维Potts模型的临界温度，所以其中涉及到利用Wolff算法对于Potts模型进行模拟。毕业答辩完成之后将所使用的代码放于此处，便于交流学习和日后巩固。</p>
 <h2 id="Wolff-算法"><a href="#Wolff-算法" class="headerlink" title="Wolff 算法"></a>Wolff 算法</h2><p>蒙特卡罗模拟有很多的算法，其中比较常用的有Metropolis算法和<a href="https://en.wikipedia.org/wiki/Wolff_algorithm" target="_blank" rel="noopener">Wolff算法</a>。由于Metropolis算法在临界点附近效率不高，所以选择Wolff算法来进行模拟。</p>
-<h3 id="Wolff算法的主要思想"><a href="#Wolff算法的主要思想" class="headerlink" title="Wolff算法的主要思想"></a>Wolff算法的主要思想</h3><p>本段内容来自于统计物理学中的蒙特卡罗方法[^1]一书</p>
+<h3 id="Wolff算法的主要思想"><a href="#Wolff算法的主要思想" class="headerlink" title="Wolff算法的主要思想"></a>Wolff算法的主要思想</h3><p>本段内容来自于统计物理学中的蒙特卡罗方法<sup><a href="#fn_1" id="reffn_1">1</a></sup>一书</p>
 <p>When the correlation length becomes large close to $T_c$, large regions are often called domains (refers to a group of adjacent spins which are pointing in he same direction). It is quite difficult for the algorithm to flip over one of these large domains because it has to do it spin by spin, and each move has quite a high probability of being rejected. The chances of flipping over a spin in the middle of a domain are particularly low, because it is surrounded by four others pointing in the same direction.</p>
 <p>This algorithm was proposed in 1989 by Ulli Wolff.</p>
 <p>The basic idea is <font color="#DC143C">to look for clusters of similarly oriented spins and then flip them in their entirety all in one go</font>, rather than trying to turn them over spin by painful spin. </p>
@@ -507,8 +507,9 @@
 <ul>
 <li><strong>What’s the number of p ?</strong></li>
 </ul>
-<p>The precise statement for Potts goes like this:<br>$$<br>p = 1-e^{-\beta J}<br>$$</p>
-<ul>
+<p>The precise statement for Potts goes like this:</p>
+<script type="math/tex; mode=display">
+p = 1-e^{-\beta J}</script><ul>
 <li><strong>The precise statement for Ising goes like this:</strong></li>
 </ul>
 <ol>
@@ -518,7 +519,7 @@
 <li>Choose at random a new value for the spins in the cluster, different from the present value, and set all the spins to that new value.</li>
 </ol>
 <h3 id="C语言实现"><a href="#C语言实现" class="headerlink" title="C语言实现"></a>C语言实现</h3><p>step() 函数用于完成一次Wolff算法翻转，其中padd, XNN, YNN等变量定义在主函数中。</p>
-<pre><code class="C">void step()
+<pre><code class="lang-C">void step()
 {
     int i;
     int sp;
@@ -585,7 +586,7 @@
 </code></pre>
 <h2 id="求解Potts模型的临界温度"><a href="#求解Potts模型的临界温度" class="headerlink" title="求解Potts模型的临界温度"></a>求解Potts模型的临界温度</h2><p>本课题通过构造新的有限尺度标度形式来求解Potts模型的临界温度，具体的思想来自于<a href="http://iopscience.iop.org/article/10.1088/0253-6102/66/3/355/meta" target="_blank" rel="noopener">Critical Behaviors and Finite-Size Scaling of Principal Fluctuation Modes in Complex Systems</a>一文，在此不再赘述。只将主函数需要实现的功能展示如下：</p>
 <h3 id="并行计算"><a href="#并行计算" class="headerlink" title="并行计算"></a>并行计算</h3><p>对于统计模拟，多次重复计算可以降低随机涨落带来的影响。由于本课题利用了大规模集群计算系统，所以需要实现多核并行计算功能，以提高计算效率。具体代码为：</p>
-<pre><code class="c++">    int npes,myrank;
+<pre><code class="lang-c++">    int npes,myrank;
     MPI_Init(NULL,NULL); 
     MPI_Comm_rank(MPI_COMM_WORLD, &amp;myrank);
     MPI_Comm_size(MPI_COMM_WORLD, &amp;npes);
@@ -609,7 +610,7 @@
 </code></pre>
 <p>前四行代码是并行计算所需要的常规设置，中间利用了time()函数和每个核的rank值给格点的自旋方向s[n]进行随机赋值，其中使用到了mt19937ar.h头文件。<br>后六行代码是希望每个核计算完成后将所算得的数据存在一个名为 <em>filenamemyrank.txt</em> 的文件中，其中myrank是该核在计算开始时被分配到的数字。</p>
 <h3 id="求解矩阵本征值"><a href="#求解矩阵本征值" class="headerlink" title="求解矩阵本征值"></a>求解矩阵本征值</h3><p>因为求解Potts模型临界温度的过程中需要求解所定义的相似度矩阵的本征值，所以实现求解矩阵本征值的功能。代码如下：</p>
-<pre><code class="c++">MatrixXd Name = MatrixXd::Constant(MC_strps_persite/SpanTime,MC_strps_persite/SpanTime,0.0);
+<pre><code class="lang-c++">MatrixXd Name = MatrixXd::Constant(MC_strps_persite/SpanTime,MC_strps_persite/SpanTime,0.0);
 //VectorXcd v;
 
 for(k = 0;k&lt;MC_strps_persite/SpanTime;k++){
@@ -639,7 +640,7 @@ for(k=0; k&lt;(Q*3);k++)
 outfile &lt;&lt;endl;
 </code></pre>
 <p>此处使用了c++中求解本征值的eigen包，由于该包需要使用MatrixXd形数据，所以代码前五行将原始的数组形式的矩阵转换成MatrixXd形的数据。其中注释掉的部分可用于求解特征向量。最后该代码输出了该矩阵前Q*3个本征值。（Q为Potts模型方向数，本征值按从大到小输出）</p>
-<p>:D 本程序全部代码可从[<a href="https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo]获得。" target="_blank" rel="noopener">https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo]获得。</a><br>[^1]:Newman M E J, Barkema G T. Monte Carlo Methods in Statistical Physics chapter 1-4[M]. Oxford University Press: New York, USA, 1999.</p>
+<p>本程序全部代码可从   [<a href="https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo" target="_blank" rel="noopener">https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo</a>] 获得。:D<br><sup><a href="#fn_1" id="reffn_1">1</a></sup>:Newman M E J, Barkema G T. Monte Carlo Methods in Statistical Physics chapter 1-4[M]. Oxford University Press: New York, USA, 1999.</p>
 
         
     
@@ -1042,7 +1043,7 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 </script>
 
-    <script src="true?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="[object Object]?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
 
@@ -1084,6 +1085,21 @@ console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viose
 
                 </main>
             </div>
-        </body>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
     
 </html>
