@@ -45,6 +45,8 @@
     
     <title>
         
+            基于Wolff算法的二维Potts模型蒙特卡罗模拟 | 
+        
         Hexo
     </title>
 
@@ -54,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",C++,Statistical Physics,Monte Carlo Method">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -210,7 +212,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Hexo">
-    <meta name="msapplication-starturl" content="http://yoursite.com/README.html">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/06/20/Potts/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Hexo">
@@ -225,13 +227,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/README.html">
+    <meta property="og:url" content="http://yoursite.com/2018/06/20/Potts/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Hexo">
+    <meta property="og:title" content="基于Wolff算法的二维Potts模型蒙特卡罗模拟 | Hexo">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="C++"> <meta property="og:article:tag" content="Statistical Physics"> <meta property="og:article:tag" content="Monte Carlo Method"> 
 
+    
+        <meta property="article:published_time" content="Wed Jun 20 2018 17:35:38 GMT+0800">
+        <meta property="article:modified_time" content="Wed Jun 20 2018 21:51:38 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -239,13 +244,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/README.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/06/20/Potts/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/06/20/Potts/index.html",
+    "headline": "基于Wolff算法的二维Potts模型蒙特卡罗模拟",
+    "datePublished": "Wed Jun 20 2018 17:35:38 GMT+0800",
+    "dateModified": "Wed Jun 20 2018 21:51:38 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Tonny Liu",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Welcome to LT's Website :D"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hexo",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",C++,Statistical Physics,Monte Carlo Method",
+    "description": "",
+}
+</script>
 
 
     
@@ -281,6 +316,39 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Wolff-算法"><span class="post-toc-number">1.</span> <span class="post-toc-text">Wolff 算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Wolff算法的主要思想"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Wolff算法的主要思想</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
 
 <!-- Layouts -->
 
@@ -307,7 +375,7 @@
         
     
             <p class="article-headline-p">
-                
+                基于Wolff算法的二维Potts模型蒙特卡罗模拟
             </p>
         </div>
 
@@ -344,6 +412,15 @@
 
     <!-- Tags (bookmark) -->
     
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/C/">C++</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Monte-Carlo-Method/">Monte Carlo Method</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Statistical-Physics/">Statistical Physics</a>
+    </ul>
+    
 
     <!-- Share -->
     
@@ -360,7 +437,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://yoursite.com/README.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=基于Wolff算法的二维Potts模型蒙特卡罗模拟&url=http://yoursite.com/2018/06/20/Potts/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 Share to Weibo
             </li>
@@ -369,7 +446,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=&url=http://yoursite.com/README.html&via=Tonny Liu" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=基于Wolff算法的二维Potts模型蒙特卡罗模拟&url=http://yoursite.com/2018/06/20/Potts/index.html&via=Tonny Liu" target="_blank">
             <li class="mdl-menu__item">
                 Share to Twitter
             </li>
@@ -378,7 +455,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/README.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/20/Potts/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Facebook
             </li>
@@ -387,7 +464,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/README.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/20/Potts/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Google+
             </li>
@@ -412,7 +489,37 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="TonnySakurai-github-io"><a href="#TonnySakurai-github-io" class="headerlink" title="TonnySakurai.github.io"></a>TonnySakurai.github.io</h1>
+        <p>由于我的本科毕业设计的课题是利用蒙特卡罗模拟的方法求解二维Potts模型的临界温度，所以其中涉及到利用Wolff算法对于Potts模型进行模拟。毕业答辩完成之后将所使用的代码放于此处，便于交流学习和日后巩固。</p>
+<h2 id="Wolff-算法"><a href="#Wolff-算法" class="headerlink" title="Wolff 算法"></a>Wolff 算法</h2><p>蒙特卡罗模拟有很多的算法，其中比较常用的有Metropolis算法和<a href="https://en.wikipedia.org/wiki/Wolff_algorithm" target="_blank" rel="noopener">Wolff算法</a>。由于metropolis算法在临界点附近效率不高，所以选择Wolff算法来进行模拟。</p>
+<h3 id="Wolff算法的主要思想"><a href="#Wolff算法的主要思想" class="headerlink" title="Wolff算法的主要思想"></a>Wolff算法的主要思想</h3><p>本段内容来自于统计物理学中的蒙特卡罗方法[^1]一书</p>
+<p>When the correlation length becomes large close to $T_c$, large regions are often called domains (refers to a group of adjacent spins which are pointing in he same direction). It is quite difficult for the algorithm to flip over one of these large domains because it has to do it spin by spin, and each move has quite a high probability of being rejected. The chances of flipping over a spin in the middle of a domain are particularly low, because it is surrounded by four others pointing in the same direction.</p>
+<p>This algorithm was proposed in 1989 by Ulli Wolff.</p>
+<p>The basic idea is <font color="#DC143C">to look for clusters of similarly oriented spins and then flip them in their entirety all in one go</font>, rather than trying to turn them over spin by painful spin. </p>
+<ul>
+<li><strong>How to find these clusters of spins which we are going to flip?</strong></li>
+</ul>
+<p>Pick a spin at random from the lattice and then look at its neighbours to see if any of them are pointing in the same direction. Then we can look at the neighbours of those neighbours, and so on, iteratively, until we have built up an entire cluster of spins. As we know, at high temperatures, the correlation between spins is weak, and we just need to flip a little number of spins. As we approach $T_c$, we know that the sizes of the clusters become much larger. Therefore, the size of the clusters we flip should increase with decreasing temperature, so we have some probability P of adding a spin, which goes up as the temperature falls. </p>
+<ul>
+<li><strong>What’s the number of p ?</strong></li>
+</ul>
+<p>The precise statement for Potts goes like this:<br>$$<br>p = 1-e^{-\beta J}<br>$$</p>
+<ul>
+<li><strong>The precise statement for Ising goes like this:</strong></li>
+</ul>
+<ol>
+<li>Choose a seed spin at random from the lattice.</li>
+<li>Look in turn at each of the neighbours of that spin. If they have the same value as the seed spin, add them to the cluster with probability $p=1-e^{-\beta J}$.</li>
+<li>For each spin that was added in the last step,examine each of its neighbours to find which ones, if any, have the same value and add each of them to the cluster with the same probability P. This step is repeated as many times as necessary until there are no spin left in the cluster whose neighbours have not been considered for inclusion in the cluster.</li>
+<li>Choose at random a new value for the spins in the cluster, different from the present value, and set all the spins to that new value.</li>
+</ol>
+<p>###C语言实现<br>step() 函数用于完成一次Wolff算法翻转，其中padd, XNN, YNN等变量定义在主函数中。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">step</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">int</span> sp;</span><br><span class="line">	<span class="keyword">int</span> oldspin, newspin;</span><br><span class="line">	<span class="keyword">int</span> current, nn;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">stack</span>[N];</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Choose the seed spin for the cluster,</span></span><br><span class="line"><span class="comment">	 * put it on the stack, and flip it</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"></span><br><span class="line">	i = N*genrand_real3();</span><br><span class="line"></span><br><span class="line">	<span class="built_in">stack</span>[<span class="number">0</span>] = i;</span><br><span class="line">	sp = <span class="number">1</span>;</span><br><span class="line">	oldspin = s[i];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>( ;(newspin = (<span class="keyword">int</span>)(Q*genrand_real3()))==oldspin; )</span><br><span class="line">	&#123;&#125;</span><br><span class="line"></span><br><span class="line">        s[i] = newspin;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(sp)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">/* Pull a site off the stack */</span></span><br><span class="line"></span><br><span class="line">		current = <span class="built_in">stack</span>[--sp];</span><br><span class="line"></span><br><span class="line">		<span class="comment">/* Check the neighbors */</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>((nn=current+XNN)&gt;=N)</span><br><span class="line">			nn -= N;</span><br><span class="line">		<span class="keyword">if</span>(s[nn]==oldspin)</span><br><span class="line">			<span class="keyword">if</span>(genrand_real1()&lt;padd)&#123;</span><br><span class="line">				<span class="built_in">stack</span>[sp++] = nn;</span><br><span class="line">				s[nn] = newspin;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>((nn=current-XNN)&lt;<span class="number">0</span>)</span><br><span class="line">			nn += N;</span><br><span class="line">		<span class="keyword">if</span>(s[nn]==oldspin)</span><br><span class="line">			<span class="keyword">if</span>(genrand_real1()&lt;padd)&#123;</span><br><span class="line">				<span class="built_in">stack</span>[sp++] = nn;</span><br><span class="line">				s[nn] = newspin;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>((nn=current+YNN)&gt;=N)</span><br><span class="line">			nn -=N;</span><br><span class="line">		<span class="keyword">if</span>(s[nn]==oldspin)</span><br><span class="line">			<span class="keyword">if</span>(genrand_real1()&lt;padd)&#123;</span><br><span class="line">				<span class="built_in">stack</span>[sp++] = nn;</span><br><span class="line">				s[nn] = newspin;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>((nn=current-YNN)&lt;<span class="number">0</span>)</span><br><span class="line">			nn += N;</span><br><span class="line">		<span class="keyword">if</span>(s[nn]==oldspin)</span><br><span class="line">			<span class="keyword">if</span>(genrand_real1()&lt;padd)&#123;</span><br><span class="line">				<span class="built_in">stack</span>[sp++] = nn;</span><br><span class="line">				s[nn] = newspin;</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>##求解Potts模型的临界温度<br>本课题通过构造新的有限尺度标度形式来求解Potts模型的临界温度，具体的思想来自于<a href="http://iopscience.iop.org/article/10.1088/0253-6102/66/3/355/meta" target="_blank" rel="noopener">Critical Behaviors and Finite-Size Scaling of Principal Fluctuation Modes in Complex Systems</a>一文，在此不再赘述。只将主函数需要实现的功能展示如下：</p>
+<p>###并行计算<br>对于统计模拟，多次重复计算可以降低随机涨落带来的影响。由于本课题利用了大规模集群计算系统，所以需要实现多核并行计算功能，以提高计算效率。具体代码为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> npes,myrank;</span><br><span class="line">MPI_Init(<span class="literal">NULL</span>,<span class="literal">NULL</span>); </span><br><span class="line">MPI_Comm_rank(MPI_COMM_WORLD, &amp;myrank);</span><br><span class="line">MPI_Comm_size(MPI_COMM_WORLD, &amp;npes);</span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> init[<span class="number">4</span>]=&#123;<span class="number">0x523</span>, <span class="number">0x234</span>, <span class="number">0x345</span>, <span class="number">0x456</span>&#125;, length=<span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">4</span>;j++)&#123;</span><br><span class="line">    init[j]+=(time(<span class="literal">NULL</span>)+myrank);</span><br><span class="line">&#125;</span><br><span class="line">init_by_array(init, length);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(n=<span class="number">0</span>; n&lt;N;n++)</span><br><span class="line">    s[n] = (<span class="keyword">int</span>)(Q*genrand_real3());</span><br><span class="line">	</span><br><span class="line"><span class="keyword">char</span> filename[<span class="number">30</span>]=&#123;<span class="number">0</span>&#125;,num[<span class="number">5</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">strcpy</span>(filename,<span class="string">"file"</span>);</span><br><span class="line"><span class="built_in">sprintf</span>(num, <span class="string">"%d"</span>, myrank); </span><br><span class="line"><span class="built_in">strcat</span>(filename,num);</span><br><span class="line"><span class="built_in">strcat</span>(filename,<span class="string">".txt"</span>);</span><br><span class="line"><span class="function">ofstream <span class="title">outfile</span><span class="params">(filename)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>前四行代码是并行计算所需要的常规设置，中间利用了time()函数和每个核的rank值给格点的自旋方向s[n]进行随机赋值，其中使用到了mt19937ar.h头文件。<br>后六行代码是希望每个核计算完成后将所算得的数据存在一个名为<em>filenamemyrank.txt</em>的文件中，其中myrank是该核在计算开始时被分配到的数字。</p>
+<p>###求解矩阵本征值<br>因为求解Potts模型临界温度的过程中需要求解所定义的相似度矩阵的本征值，所以实现求解矩阵本征值的功能。代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">MatrixXd Name = MatrixXd::Constant(MC_strps_persite/SpanTime,MC_strps_persite/SpanTime,<span class="number">0.0</span>);</span><br><span class="line"><span class="comment">//VectorXcd v;</span></span><br><span class="line">		</span><br><span class="line"><span class="keyword">for</span>(k = <span class="number">0</span>;k&lt;MC_strps_persite/SpanTime;k++)&#123;</span><br><span class="line">	<span class="keyword">for</span>(l=<span class="number">0</span>; l&lt;MC_strps_persite/SpanTime;l++)</span><br><span class="line">		Name(k,l) = Connectmatrix[k][l];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SelfAdjointEigenSolver&lt;MatrixXd&gt; es(Name);</span><br><span class="line"></span><br><span class="line"><span class="comment">//cout&lt;&lt;"The eigenvalues of A are:"&lt;&lt;endl&lt;&lt;es.eigenvalues()&lt;&lt;endl;</span></span><br><span class="line"><span class="comment">//cout&lt;&lt;"The matrix of eigenvectors, V, is:"&lt;&lt;endl&lt;&lt;es.eigenvectors()&lt;&lt;endl&lt;&lt;endl;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> eigen_values[MC_strps_persite/SpanTime];</span><br><span class="line"><span class="comment">//double eigen_vactors[MC_strps_persite/SpanTime][MC_strps_persite/SpanTime];</span></span><br><span class="line">		</span><br><span class="line"><span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;(Q*<span class="number">3</span>);k++)&#123;</span><br><span class="line">	<span class="comment">//v = es.eigenvectors().col(MC_strps_persite/SpanTime-k-1);</span></span><br><span class="line">	eigen_values[k] = es.eigenvalues()(MC_strps_persite/SpanTime-k<span class="number">-1</span>);</span><br><span class="line">	<span class="comment">//eigen_vactors[k][l] = v(l);</span></span><br><span class="line">&#125;	</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line"><span class="comment">//fprintf(fpt_2, "The temperature is %lf\n", Temperature);</span></span><br><span class="line"><span class="keyword">for</span>(k=<span class="number">0</span>; k&lt;(Q*<span class="number">3</span>);k++)</span><br><span class="line">	outfile &lt;&lt;setiosflags(ios::fixed)&lt;&lt;setprecision(<span class="number">8</span>)&lt;&lt; eigen_values[k] &lt;&lt;<span class="string">" "</span> ;</span><br><span class="line"></span><br><span class="line">outfile &lt;&lt;<span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></p>
+<p>此处使用了c++中求解本征值的eigen包，由于该包需要使用MatrixXd形数据，所以代码前五行将原始的数组形式的矩阵转换成MatrixXd形的数据。其中注释掉的部分可用于求解特征向量。最后该代码输出了该矩阵前Q*3个本征值。（Q为Potts模型方向数，本征值按从大到小输出）</p>
+<p>:D 本程序全部代码可从[<a href="https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo]获得。" target="_blank" rel="noopener">https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo]获得。</a><br>[^1]:Newman M E J, Barkema G T. Monte Carlo Methods in Statistical Physics chapter 1-4[M]. Oxford University Press: New York, USA, 1999.</p>
+
         
     
 
@@ -437,6 +544,14 @@
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2018/06/19/hello-world/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -603,6 +718,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
