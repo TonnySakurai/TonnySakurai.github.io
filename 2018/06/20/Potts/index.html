@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Wed Jun 20 2018 17:35:38 GMT+0800">
-        <meta property="article:modified_time" content="Wed Jun 20 2018 22:54:57 GMT+0800">
+        <meta property="article:modified_time" content="Fri Jun 22 2018 22:38:00 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -261,7 +261,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/06/20/Potts/index.html",
     "headline": "基于Wolff算法的二维Potts模型蒙特卡罗模拟",
     "datePublished": "Wed Jun 20 2018 17:35:38 GMT+0800",
-    "dateModified": "Wed Jun 20 2018 22:54:57 GMT+0800",
+    "dateModified": "Fri Jun 22 2018 22:38:00 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Tonny Liu",
@@ -492,9 +492,9 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>由于我的本科毕业设计的课题是利用蒙特卡罗模拟的方法求解二维Potts模型的临界温度，所以其中涉及到利用Wolff算法对于Potts模型进行模拟。毕业答辩完成之后将所使用的代码放于此处，便于交流学习和日后巩固。</p>
+        <p>由于我的本科毕业设计的课题是利用蒙特卡罗模拟的方法求解二维Potts模型的临界温度，所以其中涉及到利用Wolff算法对于Potts模型进行模拟。毕业答辩完成之后将所使用的代码放于此处，便于交流学习和日后巩固。 </p>
 <h2 id="Wolff-算法"><a href="#Wolff-算法" class="headerlink" title="Wolff 算法"></a>Wolff 算法</h2><p>蒙特卡罗模拟有很多的算法，其中比较常用的有Metropolis算法和<a href="https://en.wikipedia.org/wiki/Wolff_algorithm" target="_blank" rel="noopener">Wolff算法</a>。由于Metropolis算法在临界点附近效率不高，所以选择Wolff算法来进行模拟。</p>
-<h3 id="Wolff算法的主要思想"><a href="#Wolff算法的主要思想" class="headerlink" title="Wolff算法的主要思想"></a>Wolff算法的主要思想</h3><p>本段内容来自于统计物理学中的蒙特卡罗方法<sup><a href="#fn_1" id="reffn_1">1</a></sup>一书</p>
+<h3 id="Wolff算法的主要思想"><a href="#Wolff算法的主要思想" class="headerlink" title="Wolff算法的主要思想"></a>Wolff算法的主要思想</h3><p>本段内容来自于统计物理学中的蒙特卡罗方法 <a href="#jump"><sup>1</sup></a>一书。</p>
 <p>When the correlation length becomes large close to $T_c$, large regions are often called domains (refers to a group of adjacent spins which are pointing in he same direction). It is quite difficult for the algorithm to flip over one of these large domains because it has to do it spin by spin, and each move has quite a high probability of being rejected. The chances of flipping over a spin in the middle of a domain are particularly low, because it is surrounded by four others pointing in the same direction.</p>
 <p>This algorithm was proposed in 1989 by Ulli Wolff.</p>
 <p>The basic idea is <font color="#DC143C">to look for clusters of similarly oriented spins and then flip them in their entirety all in one go</font>, rather than trying to turn them over spin by painful spin. </p>
@@ -638,7 +638,7 @@ for(k=0; k&lt;(Q*3);k++)
 outfile &lt;&lt;endl;
 </code></pre>
 <p>此处使用了c++中求解本征值的eigen包，由于该包需要使用MatrixXd形数据，所以代码前五行将原始的数组形式的矩阵转换成MatrixXd形的数据。其中注释掉的部分可用于求解特征向量。最后该代码输出了该矩阵前Q*3个本征值。（Q为Potts模型方向数，本征值按从大到小输出）</p>
-<p>本程序全部代码可从   [<a href="https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo" target="_blank" rel="noopener">https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo</a>] 获得。:D<br><sup><a href="#fn_1" id="reffn_1">1</a></sup>:Newman M E J, Barkema G T. Monte Carlo Methods in Statistical Physics chapter 1-4[M]. Oxford University Press: New York, USA, 1999.</p>
+<p>本程序全部代码可从   [<a href="https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo" target="_blank" rel="noopener">https://github.com/TonnySakurai/Stimulate-Potts-model-in-Monte-Carlo</a>] 获得。:D<br><span id="jump">1</span>: Newman M E J, Barkema G T. Monte Carlo Methods in Statistical Physics chapter 1-4[M]. Oxford University Press: New York, USA, 1999.</p>
 
         
     
