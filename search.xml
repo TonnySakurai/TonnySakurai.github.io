@@ -6,7 +6,7 @@
       <title>生物显微实验图片处理软件ImageJ的使用方法</title>
       <link href="/2018/07/21/ImageJ/"/>
       <url>/2018/07/21/ImageJ/</url>
-      <content type="html"><![CDATA[<p>荧光显微镜是生物物理研究中的重要实验手段，对于荧光显微镜拍摄所获得的图片需要进一步处理才能得到研究所需要的各种量。而ImageJ便是一种处理显微图片高效且扩展性很强的软件。此处结合我自己的使用，将ImageJ的各种使用技巧总结如下，并会不断更新。</p><h2 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h2><p>ImageJ打开后软件的UI界面如下图所示：<br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/imagejview.jpg" alt="ImageJ view"></p><h3 id="设置像素点大小"><a href="#设置像素点大小" class="headerlink" title="设置像素点大小"></a>设置像素点大小</h3><p>因为显微镜拍摄的图片每个像素点的大小取决于所使用的ccd参数，所以不同的实验仪器，需要设置不同的像素点大小参数。</p>]]></content>
+      <content type="html"><![CDATA[<p>荧光显微镜是生物物理研究中的重要实验手段，对于荧光显微镜拍摄所获得的图片需要进一步处理才能得到研究所需要的各种量。而ImageJ便是一种处理显微图片高效且扩展性很强的软件。此处结合我自己的使用，将ImageJ的各种使用技巧总结如下，并会不断更新。</p><h2 id="基本功能"><a href="#基本功能" class="headerlink" title="基本功能"></a>基本功能</h2><p>ImageJ打开后软件的UI界面如下图所示：<br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/imagejview.jpg" alt="ImageJ view"></p><h3 id="设置像素点大小"><a href="#设置像素点大小" class="headerlink" title="设置像素点大小"></a>设置像素点大小</h3><p>因为显微镜所拍摄的图片每个像素点的大小取决于所使用的ccd参数，所以不同的实验仪器，需要设置不同的像素点大小参数。<br>设置的方式如下图所示：<br><img src="https://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/ImageJscale.gif" alt="ImageJ Scale"><br>点击Analyze，选择Set Scale选项，在打开的对话框中填入所使用的ccd的像素大小。</p><h3 id="计算所勾画区域面积"><a href="#计算所勾画区域面积" class="headerlink" title="计算所勾画区域面积"></a>计算所勾画区域面积</h3><p>在处理显微镜所拍摄的图片时，我们有时会需要获得所拍摄的细胞的面积。利用ImageJ软件获得所勾选区域的面积的过程如下图所示：<br><img src="https://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/ImageJarea.gif" alt="ImageJ area"><br>先使用多边形工具勾画出需要计算面积的区域，选择Analyze，并点击tools在其中选择ROI Manager。在对话框中点击Add，并勾选labels。最后在measure中查看面积。</p><h3 id="记录单个荧光点的轨迹"><a href="#记录单个荧光点的轨迹" class="headerlink" title="记录单个荧光点的轨迹"></a>记录单个荧光点的轨迹</h3><p>当利用荧光显微镜获得了导入到细胞内的荧光点的多帧图像后，我们需要通过图像处理获得单个荧光点的轨迹数值，这样才能在后续的数据处理中计算出msd之类的动力学参量。<br>要完成这样一个过程，我们需要利用ImageJ中的Particle Detector &amp; Tracker这个插件。<br>以一幅荧光显微成像的图片为例，具体操作过程如下：<br><img src="https://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/ImageJtrack.gif" alt="ImageJ Track"><br>先点击Plugins，选择我们安装的Particle Detector &amp; Tracker插件。在弹出框中选择我们将要挑选的荧光点的参数。其中percentile表示选择前百分之几亮度的点作为所挑选的荧光点，可根据自己的需求进行选择。<br>参数设置好后，在新对话框中可以看到不同荧光点的运动轨迹，可在轨迹图框中框选感兴趣的部分，将其中各点的轨迹导出为txt格式的文档。</p>]]></content>
       
       <categories>
           
@@ -77,16 +77,16 @@
     </entry>
     
     <entry>
-      <title>gallery</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
+      <title>timeline</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
-      <title>timeline</title>
-      <link href="/timeline/index.html"/>
-      <url>/timeline/index.html</url>
+      <title>gallery</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
