@@ -47,7 +47,7 @@
     
     <title>
         
-            Tag: Monte Carlo Method | 
+            Python学习记录之数据类型 | 
         
         Hexo
     </title>
@@ -58,7 +58,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",Python,Data Type">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -214,7 +214,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Hexo">
-    <meta name="msapplication-starturl" content="http://yoursite.com/tags/Monte-Carlo-Method/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/09/02/Python_data type/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Hexo">
@@ -229,13 +229,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/tags/Monte-Carlo-Method/">
+    <meta property="og:url" content="http://yoursite.com/2018/09/02/Python_data type/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Tag: Monte Carlo Method | Hexo">
+    <meta property="og:title" content="Python学习记录之数据类型 | Hexo">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="Python"> <meta property="og:article:tag" content="Data Type"> 
 
+    
+        <meta property="article:published_time" content="Sun Sep 02 2018 15:29:38 GMT+0800">
+        <meta property="article:modified_time" content="Sun Sep 02 2018 15:51:44 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -243,13 +246,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/tags/Monte-Carlo-Method/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/09/02/Python_data type/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/09/02/Python_data type/index.html",
+    "headline": "Python学习记录之数据类型",
+    "datePublished": "Sun Sep 02 2018 15:29:38 GMT+0800",
+    "dateModified": "Sun Sep 02 2018 15:51:44 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Tonny Liu",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Welcome to LT's Website :D"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Hexo",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Python,Data Type",
+    "description": "",
+}
+</script>
 
 
     
@@ -286,98 +319,333 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符串"><span class="post-toc-number">1.</span> <span class="post-toc-text">字符串</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取字符串的长度"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">获取字符串的长度</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#获取字符串其中某一个字符"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">获取字符串其中某一个字符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#反向索引"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">反向索引</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分片"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">分片</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符串的合并"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">字符串的合并</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符串具有不可变性"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">字符串具有不可变性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#列表"><span class="post-toc-number">2.</span> <span class="post-toc-text">列表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#序列操作："><span class="post-toc-number">2.1.</span> <span class="post-toc-text">序列操作：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#类型特定的操作："><span class="post-toc-number">2.2.</span> <span class="post-toc-text">类型特定的操作：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#增加、减少列表的大小："><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">增加、减少列表的大小：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#边界检查："><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">边界检查：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#嵌套："><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">嵌套：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#列表解析（list-comprehension-expression）："><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">列表解析（list comprehension expression）：</span></a></li></ol></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/06/20/Potts/">基于Wolff算法的二维Potts模型蒙特卡罗模拟</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            由于我的本科毕业设计的课题是利用蒙特卡罗模拟的方法求解二维Potts模型的临界温度，所以其中涉及到利用Wolff算法对于Potts模型进行模拟。毕业...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/06/20/Potts/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Tonny Liu's avatar">
-            </div>
-            <div>
-                <strong>Tonny Liu</strong>
-                <span>Jun 20, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Algorithm/">Algorithm</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Python学习记录之数据类型
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Tonny Liu</strong>
+        <span>Sep 02, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Data-Type/">Data Type</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/Python/">Python</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;Views
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Python学习记录之数据类型&url=http://yoursite.com/2018/09/02/Python_data type/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/02/Python_data type/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=Hexo&title=Python学习记录之数据类型&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/09/02/Python_data type/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>Python提供了强大的对象类型这里的对象类型指的是c语言中数据结构实现的各种数据类型，如有序链表之类的作为语言的组成部分，在你利用Python解决问题之前往往没必要再重新编写对象的实现。事实上，除非你有内置类型无法提供的特殊的对象要处理，最好总是使用内置对象而不是使用自己的实现。</p>
+<p>Python中没有类型声明。运行的表达式的语法决定了创建和使用的对象的类型。Python是动态类型的（它自动地追踪你的类型而不是要求声明代码），但它也是强类型语言（你只能对一个对象进行适合该类型的有效的操作）。</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>在python中，字符串作为序列存在。作为序列，字符串支持假设其中各个元素包含位置顺序的操作。包括以下操作：</p>
+<h3 id="获取字符串的长度"><a href="#获取字符串的长度" class="headerlink" title="获取字符串的长度"></a>获取字符串的长度</h3><p>内置函数lan()可以获得字符串的长度：</p>
+<pre><code class="lang-Python">&gt;&gt;&gt; S = &#39;Spam&#39;
+&gt;&gt;&gt; lan(S)
+4
+</code></pre>
+<h3 id="获取字符串其中某一个字符"><a href="#获取字符串其中某一个字符" class="headerlink" title="获取字符串其中某一个字符"></a>获取字符串其中某一个字符</h3><p>S[a]代表相对于第一个字符偏移a位的字符，即:</p>
+<pre><code class="lang-python">&gt;&gt;&gt; S[1]
+&#39;p&#39;
+</code></pre>
+<h3 id="反向索引"><a href="#反向索引" class="headerlink" title="反向索引"></a>反向索引</h3><p>Python支持反向索引，即:</p>
+<pre><code class="lang-python">&gt;&gt;&gt; S[-1]
+&#39;m&#39;
+</code></pre>
+<h3 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h3><p>Python支持分片(slice)的操作，这是一种一步就能够提取整个分片的方法，即:</p>
+<pre><code class="lang-python">&gt;&gt;&gt; S[1:3]
+&#39;pa&#39;
+</code></pre>
+<p>分片的一般形式为X[I:J]，表示“取出在X中从偏移量为I，直到但不包括偏移量为J的内容”。在一个分片中，左边界默认为0，并且右边界默认为分片序列的长度，如以下例子所示：</p>
+<pre><code class="lang-Python">&gt;&gt;&gt; S[ :3] 
+&#39;Spa&#39;    
+&gt;&gt;&gt; S[ :-1] 
+&#39;Spa&#39;    
+&gt;&gt;&gt; S[ : ]
+&#39;Spam&#39;
+</code></pre>
+<h3 id="字符串的合并"><a href="#字符串的合并" class="headerlink" title="字符串的合并"></a>字符串的合并</h3><p>作为一个序列，字符串也支持使用加号进行合并（将两个字符串合并成为一个新的字符串），或者重复。例如：</p>
+<pre><code class="lang-python">&gt;&gt;&gt; S + &#39;xyz&#39;
+&#39;Spamxyz&#39;    
+&gt;&gt;&gt; S*2  
+&#39;SpamSpam&#39;
+</code></pre>
+<h3 id="字符串具有不可变性"><a href="#字符串具有不可变性" class="headerlink" title="字符串具有不可变性"></a>字符串具有不可变性</h3><p>字符串在python中具有不可变性——在创建之后不能就地改变。例如不能通过对其某一位置进行赋值而改变字符串，如下操作是非法的：</p>
+<pre><code class="lang-python">&gt;&gt;&gt; S[0] = &#39;Z&#39;
+</code></pre>
+<p>但可以通过建立一个新的字符串并以同一个变量名对其进行赋值以达成目的：</p>
+<pre><code class="lang-python">&gt;&gt;&gt; S = &#39;Z&#39; + S[1: ]
+&gt;&gt;&gt; S
+&#39;Zpam&#39;
+</code></pre>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="序列操作："><a href="#序列操作：" class="headerlink" title="序列操作："></a>序列操作：</h3><p>由于列表是序列的一种，列表支持所有的我们对于字符串讨论过的序列操作，如：</p>
+<pre><code class="lang-python">&gt;&gt;&gt; L = [123, &#39;spam&#39;, 1.23]
+&gt;&gt;&gt; len(L) 
+3    
+&gt;&gt;&gt; L[0]
+123    
+&gt;&gt;&gt; L[ :-1] 
+[123, &#39;spam&#39;]    
+&gt;&gt;&gt; L + [4, 5, 6] 
+[123, &#39;spam&#39;, 1.23, 4, 5, 6]
+</code></pre>
+<h3 id="类型特定的操作："><a href="#类型特定的操作：" class="headerlink" title="类型特定的操作："></a>类型特定的操作：</h3><h4 id="增加、减少列表的大小："><a href="#增加、减少列表的大小：" class="headerlink" title="增加、减少列表的大小："></a>增加、减少列表的大小：</h4><pre><code class="lang-python">&gt;&gt;&gt; L.append(&#39;NI&#39;)    #增加值为NI的一项
+&gt;&gt;&gt; L
+[123, &#39;spam&#39;, 1.23, &#39;NI&#39;]
+</code></pre>
+<pre><code class="lang-python">&gt;&gt;&gt; L.pop(2)          #移除给定偏移量为2的一项
+1.23
+&gt;&gt;&gt; L
+[123, &#39;spam&#39;, &#39;NI&#39;]
+</code></pre>
+<h4 id="边界检查："><a href="#边界检查：" class="headerlink" title="边界检查："></a>边界检查：</h4><p>超出列表末尾之外的索引或赋值会导致错误。</p>
+<h4 id="嵌套："><a href="#嵌套：" class="headerlink" title="嵌套："></a>嵌套：</h4><p>Python核心数据类型的一个优秀的特性就是它们支持任意的嵌套。能够以任意的组合对其进行嵌套，并可以多个层次进行嵌套（例如，能够让一个列表包含一个字典，并在这个字典中包含另一个列表等）。这种特性的一个直接的应用就是实现矩阵。</p>
+<pre><code class="lang-python">&gt;&gt;&gt; M = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+&gt;&gt;&gt; M[1]
+[4, 5, 6]
+&gt;&gt;&gt; M[1][2]
+6
+</code></pre>
+<p>注：这种矩阵结构适用于小规模的任务，但对于更重要的数值运算而言，可以考虑使用Python数值扩展包，如NumPy系统。</p>
+<h4 id="列表解析（list-comprehension-expression）："><a href="#列表解析（list-comprehension-expression）：" class="headerlink" title="列表解析（list comprehension expression）："></a>列表解析（list comprehension expression）：</h4><p>列表解析源自集合的概念。它是一种通过对序列中的每一项运行一个表达式的方式来创建一个新的列表的方法。如下面例子所示：</p>
+<pre><code class="lang-python">&gt;&gt;&gt; col2 = [row[1] for row in M]       #把矩阵M的每个row中的row[1]，放在一个新的列表中
+&gt;&gt;&gt; col2 
+[2, 5, 8]
+&gt;&gt;&gt; [row[1] + 1 for row in M]
+[3, 6, 9]
+&gt;&gt;&gt; [row[1] for row in M if row[1] % 2 == 0]
+[2, 8]
+&gt;&gt;&gt; diag = [M[i][i] for i in [0, 1, 2] ]
+[1, 5, 9]
+&gt;&gt;&gt; doubles = [c * 2 for c in &#39;spam&#39;]
+&gt;&gt;&gt; doubles
+[&#39;ss&#39;, &#39;pp&#39;, &#39;aa&#39;, &#39;mm&#39;]
+</code></pre>
+
+        
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 来必力 -->
+<div id="livere-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzUyOS8xNDA2MQ==">
+	<script type="text/ls-javascript" id="livere-comment-js">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+</div>
+</div>
+<style>
+    #livere-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/07/21/ImageJ/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -560,6 +828,14 @@ It will not impact the appearance and can give developers a lot of support :)
                     
 
                     
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
 
                     <!--Footer-->
 <footer class="mdl-mini-footer" id="bottom">
@@ -737,6 +1013,26 @@ It will not impact the appearance and can give developers a lot of support :)
 </script>
 
 <!-- MathJax Load-->
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+    <script src="[object Object]?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
 
 
 <!-- Bing Background -->

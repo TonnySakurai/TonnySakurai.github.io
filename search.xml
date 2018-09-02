@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>Python学习记录之数据类型</title>
+      <link href="/2018/09/02/Python_data%20type/"/>
+      <url>/2018/09/02/Python_data%20type/</url>
+      <content type="html"><![CDATA[<p>Python提供了强大的对象类型这里的对象类型指的是c语言中数据结构实现的各种数据类型，如有序链表之类的作为语言的组成部分，在你利用Python解决问题之前往往没必要再重新编写对象的实现。事实上，除非你有内置类型无法提供的特殊的对象要处理，最好总是使用内置对象而不是使用自己的实现。</p><p>Python中没有类型声明。运行的表达式的语法决定了创建和使用的对象的类型。Python是动态类型的（它自动地追踪你的类型而不是要求声明代码），但它也是强类型语言（你只能对一个对象进行适合该类型的有效的操作）。</p><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>在python中，字符串作为序列存在。作为序列，字符串支持假设其中各个元素包含位置顺序的操作。包括以下操作：</p><h3 id="获取字符串的长度"><a href="#获取字符串的长度" class="headerlink" title="获取字符串的长度"></a>获取字符串的长度</h3><p>内置函数lan()可以获得字符串的长度：</p><pre><code class="lang-Python">&gt;&gt;&gt; S = &#39;Spam&#39;&gt;&gt;&gt; lan(S)4</code></pre><h3 id="获取字符串其中某一个字符"><a href="#获取字符串其中某一个字符" class="headerlink" title="获取字符串其中某一个字符"></a>获取字符串其中某一个字符</h3><p>S[a]代表相对于第一个字符偏移a位的字符，即:</p><pre><code class="lang-python">&gt;&gt;&gt; S[1]&#39;p&#39;</code></pre><h3 id="反向索引"><a href="#反向索引" class="headerlink" title="反向索引"></a>反向索引</h3><p>Python支持反向索引，即:</p><pre><code class="lang-python">&gt;&gt;&gt; S[-1]&#39;m&#39;</code></pre><h3 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h3><p>Python支持分片(slice)的操作，这是一种一步就能够提取整个分片的方法，即:</p><pre><code class="lang-python">&gt;&gt;&gt; S[1:3]&#39;pa&#39;</code></pre><p>分片的一般形式为X[I:J]，表示“取出在X中从偏移量为I，直到但不包括偏移量为J的内容”。在一个分片中，左边界默认为0，并且右边界默认为分片序列的长度，如以下例子所示：</p><pre><code class="lang-Python">&gt;&gt;&gt; S[ :3] &#39;Spa&#39;    &gt;&gt;&gt; S[ :-1] &#39;Spa&#39;    &gt;&gt;&gt; S[ : ]&#39;Spam&#39;</code></pre><h3 id="字符串的合并"><a href="#字符串的合并" class="headerlink" title="字符串的合并"></a>字符串的合并</h3><p>作为一个序列，字符串也支持使用加号进行合并（将两个字符串合并成为一个新的字符串），或者重复。例如：</p><pre><code class="lang-python">&gt;&gt;&gt; S + &#39;xyz&#39;&#39;Spamxyz&#39;    &gt;&gt;&gt; S*2  &#39;SpamSpam&#39;</code></pre><h3 id="字符串具有不可变性"><a href="#字符串具有不可变性" class="headerlink" title="字符串具有不可变性"></a>字符串具有不可变性</h3><p>字符串在python中具有不可变性——在创建之后不能就地改变。例如不能通过对其某一位置进行赋值而改变字符串，如下操作是非法的：</p><pre><code class="lang-python">&gt;&gt;&gt; S[0] = &#39;Z&#39;</code></pre><p>但可以通过建立一个新的字符串并以同一个变量名对其进行赋值以达成目的：</p><pre><code class="lang-python">&gt;&gt;&gt; S = &#39;Z&#39; + S[1: ]&gt;&gt;&gt; S&#39;Zpam&#39;</code></pre><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><h3 id="序列操作："><a href="#序列操作：" class="headerlink" title="序列操作："></a>序列操作：</h3><p>由于列表是序列的一种，列表支持所有的我们对于字符串讨论过的序列操作，如：</p><pre><code class="lang-python">&gt;&gt;&gt; L = [123, &#39;spam&#39;, 1.23]&gt;&gt;&gt; len(L) 3    &gt;&gt;&gt; L[0]123    &gt;&gt;&gt; L[ :-1] [123, &#39;spam&#39;]    &gt;&gt;&gt; L + [4, 5, 6] [123, &#39;spam&#39;, 1.23, 4, 5, 6]</code></pre><h3 id="类型特定的操作："><a href="#类型特定的操作：" class="headerlink" title="类型特定的操作："></a>类型特定的操作：</h3><h4 id="增加、减少列表的大小："><a href="#增加、减少列表的大小：" class="headerlink" title="增加、减少列表的大小："></a>增加、减少列表的大小：</h4><pre><code class="lang-python">&gt;&gt;&gt; L.append(&#39;NI&#39;)    #增加值为NI的一项&gt;&gt;&gt; L[123, &#39;spam&#39;, 1.23, &#39;NI&#39;]</code></pre><pre><code class="lang-python">&gt;&gt;&gt; L.pop(2)          #移除给定偏移量为2的一项1.23&gt;&gt;&gt; L[123, &#39;spam&#39;, &#39;NI&#39;]</code></pre><h4 id="边界检查："><a href="#边界检查：" class="headerlink" title="边界检查："></a>边界检查：</h4><p>超出列表末尾之外的索引或赋值会导致错误。</p><h4 id="嵌套："><a href="#嵌套：" class="headerlink" title="嵌套："></a>嵌套：</h4><p>Python核心数据类型的一个优秀的特性就是它们支持任意的嵌套。能够以任意的组合对其进行嵌套，并可以多个层次进行嵌套（例如，能够让一个列表包含一个字典，并在这个字典中包含另一个列表等）。这种特性的一个直接的应用就是实现矩阵。</p><pre><code class="lang-python">&gt;&gt;&gt; M = [[1, 2, 3],          [4, 5, 6],          [7, 8, 9]]&gt;&gt;&gt; M[1][4, 5, 6]&gt;&gt;&gt; M[1][2]6</code></pre><p>注：这种矩阵结构适用于小规模的任务，但对于更重要的数值运算而言，可以考虑使用Python数值扩展包，如NumPy系统。</p><h4 id="列表解析（list-comprehension-expression）："><a href="#列表解析（list-comprehension-expression）：" class="headerlink" title="列表解析（list comprehension expression）："></a>列表解析（list comprehension expression）：</h4><p>列表解析源自集合的概念。它是一种通过对序列中的每一项运行一个表达式的方式来创建一个新的列表的方法。如下面例子所示：</p><pre><code class="lang-python">&gt;&gt;&gt; col2 = [row[1] for row in M]       #把矩阵M的每个row中的row[1]，放在一个新的列表中&gt;&gt;&gt; col2 [2, 5, 8]&gt;&gt;&gt; [row[1] + 1 for row in M][3, 6, 9]&gt;&gt;&gt; [row[1] for row in M if row[1] % 2 == 0][2, 8]&gt;&gt;&gt; diag = [M[i][i] for i in [0, 1, 2] ][1, 5, 9]&gt;&gt;&gt; doubles = [c * 2 for c in &#39;spam&#39;]&gt;&gt;&gt; doubles[&#39;ss&#39;, &#39;pp&#39;, &#39;aa&#39;, &#39;mm&#39;]</code></pre>]]></content>
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> Data Type </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>生物显微实验图片处理软件ImageJ的使用方法</title>
       <link href="/2018/07/21/ImageJ/"/>
       <url>/2018/07/21/ImageJ/</url>
@@ -77,16 +100,16 @@
     </entry>
     
     <entry>
-      <title>gallery</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
+      <title>timeline</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
-      <title>timeline</title>
-      <link href="/timeline/index.html"/>
-      <url>/timeline/index.html</url>
+      <title>gallery</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
