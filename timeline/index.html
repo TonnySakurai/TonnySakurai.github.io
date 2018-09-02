@@ -705,7 +705,7 @@
 					</div>
 					<p class="md-timeline-excerpt">
 						
-							Python提供了强大的对象类型这里的对象类型指的是c语言中数据结构实现的各种数据类型，如有序链表之类的作为语言的组成部分，在你利用Python解决...
+							在使用底层语言C或者C++时，我们有很大一部分工作都集中于用对象去表现应用领域的组件。在这一过程中我们需要部署内存结构、管理内存分配、实现搜索和读取...
 						...
 					</p>
                     		</div>
@@ -1197,6 +1197,21 @@ console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viose
 
                 </main>
             </div>
-        </body>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
     
 </html>
