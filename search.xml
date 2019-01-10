@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>简单摄影后期流程</title>
+      <link href="/2019/01/04/photography/"/>
+      <url>/2019/01/04/photography/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      <categories>
+          
+          <category> Photography </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Lightroom </tag>
+            
+            <tag> Photoshop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Python学习记录之数据类型</title>
       <link href="/2018/09/02/Python_data%20type/"/>
       <url>/2018/09/02/Python_data%20type/</url>
@@ -91,16 +114,16 @@
     </entry>
     
     <entry>
-      <title>timeline</title>
-      <link href="/timeline/index.html"/>
-      <url>/timeline/index.html</url>
+      <title>gallery</title>
+      <link href="/gallery/index.html"/>
+      <url>/gallery/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
-      <title>gallery</title>
-      <link href="/gallery/index.html"/>
-      <url>/gallery/index.html</url>
+      <title>timeline</title>
+      <link href="/timeline/index.html"/>
+      <url>/timeline/index.html</url>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
