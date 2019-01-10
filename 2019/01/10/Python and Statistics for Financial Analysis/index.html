@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Thu Jan 10 2019 17:35:38 GMT+0800">
-        <meta property="article:modified_time" content="Thu Jan 10 2019 20:12:00 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jan 10 2019 20:14:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -261,7 +261,7 @@
     "mainEntityOfPage": "http://yoursite.com/2019/01/10/Python and Statistics for Financial Analysis/index.html",
     "headline": "Python and Statistics for Financial Analysis",
     "datePublished": "Thu Jan 10 2019 17:35:38 GMT+0800",
-    "dateModified": "Thu Jan 10 2019 20:12:00 GMT+0800",
+    "dateModified": "Thu Jan 10 2019 20:14:55 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Tonny Liu",
@@ -348,7 +348,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Visualizing-and-Munging-Stock-Data"><span class="post-toc-number">1.</span> <span class="post-toc-text">Visualizing and Munging Stock Data</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Importing-data"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Importing data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Basics-of-Dataframe"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Basics of Dataframe</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Attributes-of-DataFrame"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Attributes of DataFrame</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Slicing-DataFrame"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Slicing DataFrame</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Generate-new-variables-in-DataFrame"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">Generate new variables in DataFrame</span></a></li></ol></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Visualizing-and-Munging-Stock-Data"><span class="post-toc-number">1.</span> <span class="post-toc-text">Visualizing and Munging Stock Data</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Importing-data"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Importing data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Basics-of-Dataframe"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Basics of Dataframe</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Attributes-of-DataFrame"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Attributes of DataFrame</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Some-simple-functions-of-DataFrame"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Some simple functions of DataFrame</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Slicing-DataFrame"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">Slicing DataFrame</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Generate-new-variables-in-DataFrame"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">Generate new variables in DataFrame</span></a></li></ol></li></ol></li></ol>
     </ul>
     
 
@@ -508,15 +508,16 @@
 </code></pre>
 (PS:fb is the name of this data, you can chose everything you want; .from_csv() is a function which is used to import a .csv data, so if you chose another kind of data, for example .xlsx, you should use another function.)<h3 id="Basics-of-Dataframe"><a href="#Basics-of-Dataframe" class="headerlink" title="Basics of Dataframe"></a>Basics of Dataframe</h3>First, we can use the function:<pre><code class="lang-Python">fb.head()
 </code></pre>
-to show the first five rows of the DataFrame data.(PS: In this line, fb should be replaced by the name of you data)<br>The output should be like:<br>image1<br>We should know that the index of this data is the first column showed of the data. In this data, the index is the Date.<h4 id="Attributes-of-DataFrame"><a href="#Attributes-of-DataFrame" class="headerlink" title="Attributes of DataFrame"></a>Attributes of DataFrame</h4>```Python<br>fb.index<br>fb.index[0]     #the first index<br>fb.index[-1]    #the last index<br>fb.columns</li>
-</ul>
-<p>fb.shape        #number of rows and columns</p>
-<pre><code>#### Some simple functions of DataFrame
-```Python
-fb.tail()       #display the last five rows of the data
+to show the first five rows of the DataFrame data.(PS: In this line, fb should be replaced by the name of you data)<br>The output should be like:<br>image1<br>We should know that the index of this data is the first column showed of the data. In this data, the index is the Date.<h4 id="Attributes-of-DataFrame"><a href="#Attributes-of-DataFrame" class="headerlink" title="Attributes of DataFrame"></a>Attributes of DataFrame</h4><pre><code class="lang-Python">fb.index
+fb.index[0]     #the first index
+fb.index[-1]    #the last index
+fb.columns
+fb.shape        #number of rows and columns
+</code></pre>
+<h4 id="Some-simple-functions-of-DataFrame"><a href="#Some-simple-functions-of-DataFrame" class="headerlink" title="Some simple functions of DataFrame"></a>Some simple functions of DataFrame</h4><pre><code class="lang-Python">fb.tail()       #display the last five rows of the data
 fb.describe()   #a interesting function, it will tell you some basic statistical property of the data
-</code></pre><h4 id="Slicing-DataFrame"><a href="#Slicing-DataFrame" class="headerlink" title="Slicing DataFrame"></a>Slicing DataFrame</h4><p>There are two ways to slicing DataFrame:</p>
-<ul>
+</code></pre>
+<h4 id="Slicing-DataFrame"><a href="#Slicing-DataFrame" class="headerlink" title="Slicing DataFrame"></a>Slicing DataFrame</h4>There are two ways to slicing DataFrame:</li>
 <li><strong>Selection by label</strong><br>Use the function .loc[], for example:<pre><code class="lang-Python">fb.loc[&#39;2015-01-02&#39;,&#39;Close&#39;]
 </code></pre>
 Then we can get the data pointed in under picture:<br>image2</li>
