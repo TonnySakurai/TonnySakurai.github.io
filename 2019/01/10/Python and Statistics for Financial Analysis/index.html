@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Thu Jan 10 2019 17:35:38 GMT+0800">
-        <meta property="article:modified_time" content="Thu Jan 10 2019 20:23:42 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jan 14 2019 21:21:46 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -261,7 +261,7 @@
     "mainEntityOfPage": "http://yoursite.com/2019/01/10/Python and Statistics for Financial Analysis/index.html",
     "headline": "Python and Statistics for Financial Analysis",
     "datePublished": "Thu Jan 10 2019 17:35:38 GMT+0800",
-    "dateModified": "Thu Jan 10 2019 20:23:42 GMT+0800",
+    "dateModified": "Mon Jan 14 2019 21:21:46 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Tonny Liu",
@@ -506,9 +506,9 @@
 </li>
 <li><strong>Import data</strong><pre><code class="lang-Python">fb = pd.DataFrame.from_csv(&#39;data/facebook.csv&#39;)
 </code></pre>
-(PS:fb is the name of this data, you can chose everything you want; .from_csv( ) is a function which is used to import a .csv data, so if you chose another kind of data, for example .xlsx, you should use another function.)<h3 id="Basics-of-Dataframe"><a href="#Basics-of-Dataframe" class="headerlink" title="Basics of Dataframe"></a>Basics of Dataframe</h3>First, we can use the function:<pre><code class="lang-Python">fb.head()
+(PS: <em>fb</em> is the name of this data, you can chose everything you want; <em>.from_csv( )</em> is a function which is used to import a <em>.csv</em> data, so if you chose another kind of data, for example <em>.xlsx</em>, you should use another function.)<h3 id="Basics-of-Dataframe"><a href="#Basics-of-Dataframe" class="headerlink" title="Basics of Dataframe"></a>Basics of Dataframe</h3>First, we can use the function:<pre><code class="lang-Python">fb.head()
 </code></pre>
-to show the first five rows of the DataFrame data.(PS: In this line, fb should be replaced by the name of you data)<br>The output should be like:<br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/1.PNG" alt="Image1"><br>We should know that the index of this data is the first column showed of the data. In this data, the index is the Date.<h4 id="Attributes-of-DataFrame"><a href="#Attributes-of-DataFrame" class="headerlink" title="Attributes of DataFrame"></a>Attributes of DataFrame</h4><pre><code class="lang-Python">fb.index
+to show the first five rows of the DataFrame data.(PS: In this line, <em>fb</em> should be replaced by the name of you data)<br>The output should be like:<br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/1.PNG" alt="Image1"><br>We should know that the index of this data is the first column showed of the data. In this data, the index is the Date.<h4 id="Attributes-of-DataFrame"><a href="#Attributes-of-DataFrame" class="headerlink" title="Attributes of DataFrame"></a>Attributes of DataFrame</h4><pre><code class="lang-Python">fb.index
 fb.index[0]     #the first index
 fb.index[-1]    #the last index
 fb.columns
@@ -518,14 +518,14 @@ fb.shape        #number of rows and columns
 fb.describe()   #a interesting function, it will tell you some basic statistical property of the data
 </code></pre>
 <h4 id="Slicing-DataFrame"><a href="#Slicing-DataFrame" class="headerlink" title="Slicing DataFrame"></a>Slicing DataFrame</h4>There are two ways to slicing DataFrame:</li>
-<li><strong>Selection by label</strong><br>Use the function .loc[ ], for example:<pre><code class="lang-Python">fb.loc[&#39;2015-01-02&#39;,&#39;Close&#39;]
+<li><strong>Selection by label</strong><br>Use the function <em>.loc[ ]</em>, for example:<pre><code class="lang-Python">fb.loc[&#39;2015-01-02&#39;,&#39;Close&#39;]
 </code></pre>
 Then we can get the data pointed in under picture:<br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/2.PNG" alt="Image2"></li>
-<li><strong>Selection by position</strong><br>Use the function .iloc[ ], for example:<pre><code class="lang-Python">fb.iloc[1,3]
+<li><strong>Selection by position</strong><br>Use the function <em>.iloc[ ]</em>, for example:<pre><code class="lang-Python">fb.iloc[1,3]
 </code></pre>
 Then we can get the data pointed in under picture<br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/3.PNG" alt="Image3"></li>
 </ul>
-<p>In conclusion, .loc[ ] let us use the name of index to find the data we wanted; .iloc[] let us use the index number to find the data we wanted.<br>If we want to get a part of data, we can use this way:</p>
+<p>In conclusion, <em>.loc[ ]</em> let us use the name of index to find the data we wanted; <em>.iloc[ ]</em> let us use the index number to find the data we wanted.<br>If we want to get a part of data, we can use this way:</p>
 <pre><code class="lang-Python">fb.loc[&#39;2015-01-01&#39;:&#39;2015-12-31&#39;,&#39;Close&#39;]
 </code></pre>
 <p>Then we can get output like:<br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/4.PNG" alt="Image4"></p>
@@ -541,13 +541,13 @@ fb.loc[&#39;2018-01-01&#39;:&#39;2015-12-31&#39;,&#39;Close&#39;].plot()
 <h4 id="Generate-new-variables-in-DataFrame"><a href="#Generate-new-variables-in-DataFrame" class="headerlink" title="Generate new variables in DataFrame"></a>Generate new variables in DataFrame</h4><p>Beside the original variables, we need to create more variables in our DataFrame file in order to do further analysis.<br>For example, we want to have a new varibale, named Price1, to display the Close price of tomorrow. We can do like this:</p>
 <pre><code class="lang-Python">fb[&#39;Price1&#39;] = fb[&#39;Close&#39;].shift(-1)
 </code></pre>
-<p>Then we can get the output like:<br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/6.PNG" alt="Image6"><br>The function .shift( ) is used to move all of the date in this column up or down. If the position had number at first but no number to supply after the moving, this position will be recorded by NAN<br>Then, we can make a variable named PriceDiff to show the difference of price for today and tomorrow:</p>
+<p>Then we can get the output like:<br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/6.PNG" alt="Image6"><br>The function <em>.shift( )</em> is used to move all of the date in this column up or down. If the position had number at first but no number to supply after the moving, this position will be recorded by NAN<br>Then, we can make a variable named PriceDiff to show the difference of price for today and tomorrow:</p>
 <pre><code class="lang-Python">fb[&#39;PriceDiff&#39;] = fb[&#39;Price1&#39;] - fb[&#39;Close&#39;]
 </code></pre>
 <p><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/7.PNG" alt="Image7"><br>Then we can create a column, named Direction, to show the change of price. The value of Direction will be 1 when the PriceDiff is positive, and be -1 when the PriceDiff is negative.</p>
 <pre><code class="lang-Python">fb[&#39;Direction&#39;] = [1 if fb.loc[ei, &#39;PriceDiff&#39;] &gt; 0 else -1 for ei in fb.index]
 </code></pre>
-<p><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/8.PNG" alt="Image8"><br>Okay, this words looks like a little complex. you just need to know that the variable ei can be replaced by every words if you like, it just a loop index.<br>If I want to get the values of every 40 days average price, what should I do?<br>There are one function named .rolling( ).mean can be used.</p>
+<p><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/8.PNG" alt="Image8"><br>Okay, this words looks like a little complex. you just need to know that the variable ei can be replaced by every words if you like, it just a loop index.<br>If I want to get the values of every 40 days average price, what should I do?<br>There are one function named <em>.rolling( ).mean</em> can be used.</p>
 <pre><code class="lang-Python">fb[&#39;MA40&#39;] = fb[&#39;Close&#39;].rolling(40).mean
 fb[&#39;MA100&#39;] = fb[&#39;Close&#39;].rolling(100).mean
 </code></pre>
@@ -1019,21 +1019,6 @@ console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viose
 
                 </main>
             </div>
-        <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-</body>
+        </body>
     
 </html>
