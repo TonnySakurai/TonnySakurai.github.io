@@ -238,7 +238,7 @@
 
     
         <meta property="article:published_time" content="Thu Jan 10 2019 17:35:38 GMT+0800">
-        <meta property="article:modified_time" content="Mon Jan 14 2019 21:21:46 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jan 14 2019 22:05:22 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -261,7 +261,7 @@
     "mainEntityOfPage": "http://yoursite.com/2019/01/10/Python and Statistics for Financial Analysis/index.html",
     "headline": "Python and Statistics for Financial Analysis",
     "datePublished": "Thu Jan 10 2019 17:35:38 GMT+0800",
-    "dateModified": "Mon Jan 14 2019 21:21:46 GMT+0800",
+    "dateModified": "Mon Jan 14 2019 22:05:22 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Tonny Liu",
@@ -348,7 +348,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Visualizing-and-Munging-Stock-Data"><span class="post-toc-number">1.</span> <span class="post-toc-text">Visualizing and Munging Stock Data</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Importing-data"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Importing data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Basics-of-Dataframe"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Basics of Dataframe</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Attributes-of-DataFrame"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Attributes of DataFrame</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Some-simple-functions-of-DataFrame"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Some simple functions of DataFrame</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Slicing-DataFrame"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">Slicing DataFrame</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Generate-new-variables-in-DataFrame"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">Generate new variables in DataFrame</span></a></li></ol></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Visualizing-and-Munging-Stock-Data"><span class="post-toc-number">1.</span> <span class="post-toc-text">Visualizing and Munging Stock Data</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Importing-data"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Importing data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Basics-of-Dataframe"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Basics of Dataframe</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Attributes-of-DataFrame"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Attributes of DataFrame</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Some-simple-functions-of-DataFrame"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Some simple functions of DataFrame</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Slicing-DataFrame"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">Slicing DataFrame</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Generate-new-variables-in-DataFrame"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">Generate new variables in DataFrame</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Trading-Strategy"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Trading Strategy</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Random-Variable-and-Distributions"><span class="post-toc-number">2.</span> <span class="post-toc-text">Random Variable and Distributions</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Module-Introduction"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Module Introduction</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -552,6 +552,21 @@ fb.loc[&#39;2018-01-01&#39;:&#39;2015-12-31&#39;,&#39;Close&#39;].plot()
 fb[&#39;MA100&#39;] = fb[&#39;Close&#39;].rolling(100).mean
 </code></pre>
 <p><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/9.PNG" alt="Image9"><br>In this way we created two variables to show the every 40 days average price and every 100 days average price.<br>If we draw a picture of Close, MA40 and MA100, we can find the last two variables have the same tendence of the original data, but they are more smooth.</p>
+<h3 id="Trading-Strategy"><a href="#Trading-Strategy" class="headerlink" title="Trading Strategy"></a>Trading Strategy</h3><p>Okay, For now, we can build a simple strategy of stock trading by using the tool we just learned. </p>
+<p>Moving Average over long period reflects the price change over long-term history, which we call slow signal. We create MA10 and MA50, which are fast signal and slow signal respectively. Then, we plot close price MA10 and MA50. If MA10 is larger than MA50, <font color="#DC143C">the stock price is believed by some traders, that it goes up in the next several days. Otherwise, the price will decrease.</font> Our strategy is, if MA10 is larger than MA50, we will buy and hold one share of stock. Alternately speaking, we will long one share of stock. </p>
+<p>Then we can crate a new variable called <em>shares</em>, to denote whether we long or not.</p>
+<pre><code class="lang-Python">ms[&#39;Shares&#39;] = [1 if ms.loc[ei,&#39;MA10&#39;]&gt;ms.loc[ei,&#39;MA50&#39;] else 0 for ei in ms.index]
+</code></pre>
+<p>(Ps: this code means if MA10 larger than MA50, then the Shares will be 1, else will be 0)</p>
+<p>Then we need to measure the daily profit. First, we create variable Close1, which is the close of price of tomorrow.Then, we’ll create a new variable called Profit, which indeed is the daily profit. If shares is equal to one, the daily profit is equal to the close price of tomorrow minus close price of today. It can be positive or negative. If negative, we lose money on that day. If shares is equal to 0, it means we do not have stock at hand, the profit is equal to zero. We can plot the profit and find out on some days we make money, on other days we lose money.</p>
+<pre><code class="lang-Python">ms[&#39;Close1&#39;] = ms[&#39;Close&#39;],shift(-1)
+ms[&#39;Profit&#39;] = [ms.loc[ei,&#39;Close1&#39;]-ms.loc[ei,&#39;Close&#39;] if ms.loc[ei,&#39;Shares&#39;] == 1 else 0 for ei in ms.index]
+</code></pre>
+<p>Then we can calculate the cumulative wealth:</p>
+<pre><code class="lang-Python">ms[&#39;wealth&#39;] = ms[&#39;Profit&#39;].cumsum()
+</code></pre>
+<p>Then, we print out wealth, which in fact is a sum of profit:<br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/10.PNG" alt="Image10"><br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/11.PNG" alt="Image11"></p>
+<h2 id="Random-Variable-and-Distributions"><a href="#Random-Variable-and-Distributions" class="headerlink" title="Random Variable and Distributions"></a>Random Variable and Distributions</h2><h3 id="Module-Introduction"><a href="#Module-Introduction" class="headerlink" title="Module Introduction"></a>Module Introduction</h3><p>In the previous topic, we primarily introduced the use of Python to import, read, and manipulate stock data by adding new features. One of the key new features we added is a moving average. After that, we combine what we have learned and developed our first simple trading strategy. In this simple trading strategy, we buy and hold one share of stock. If the 10 day moving average, MA10, is larger than 50 day moving average, MA50, which we called long one share of stock, then we do not do anything if MA50 is less than MA10. The result looks promising.<br><img src="http://tonnyliublogimage.oss-cn-hongkong.aliyuncs.com/Python%20financial/12.PNG" alt="Image12"><br>But as you can see, there are two points whereby we lose money and financial analysis, we will try our best to minimize the loss. What do we want to know is, how to compute the chance of bankruptcy if I apply this strategy? Am I lucky enough, so that we can avoid this in the next two years? The simple trading strategy is built on two variables, moving average 10 and moving average 50. In statistics, they are called random variables. This is where we need to apply some statistical knowledge by asking, what is a probability rule? Or more formally speaking, what is in distribution of these two random variables, MA10 and MA50? Identify important variables is important in helping us making better prediction and decisions.</p>
 
         
     
@@ -1019,6 +1034,21 @@ console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viose
 
                 </main>
             </div>
-        </body>
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
     
 </html>
